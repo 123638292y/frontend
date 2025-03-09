@@ -1,0 +1,148 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  color: #464866;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.welcomeText {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.inputGroup input::placeholder {
+  color: #999;
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #464866;
+}
+
+/* Styles pour les boutons radio */
+.radioGroup {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 5px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radioLabel input[type="radio"] {
+  margin-right: 8px;
+  cursor: pointer;
+  accent-color: #464866;
+}
+
+.radioText {
+  color: #555;
+  font-size: 15px;
+}
+
+.loginButton {
+  background-color: #464866;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.loginButton:hover {
+  background-color: #373a52;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.footer {
+  margin-top: 40px;
+  color: #666;
+  font-size: 14px;
+}
+
+.footerLink {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: #464866;
+}
+
+.footerDot {
+  margin: 0 8px;
+  color: #666;
+}
+
+@media (max-width: 480px) {
+  .formWrapper {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .welcomeText {
+    font-size: 14px;
+  }
+
+  .inputGroup input,
+  .loginButton {
+    font-size: 14px;
+  }
+
+  .radioGroup {
+    gap: 15px;
+  }
+
+  .radioText {
+    font-size: 14px;
+  }
+}
+
