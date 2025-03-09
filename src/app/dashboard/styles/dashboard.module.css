@@ -1,0 +1,161 @@
+.dashboard {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  color: #6b7280;
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.mainStat {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.trend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.trendUp {
+  color: #10b981;
+}
+
+.trendDown {
+  color: #ef4444;
+}
+
+.miniChart {
+  display: flex;
+  gap: 2px;
+  height: 32px;
+  align-items: flex-end;
+  margin-top: 0.5rem;
+}
+
+.miniBar {
+  width: 4px;
+  background: #e5e7eb;
+  border-radius: 2px;
+}
+
+.statistics {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chart {
+  margin-top: 1rem;
+  height: 400px;
+}
+
+.referrers {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.mapSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mapContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.countryList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.countryItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .mapContainer {
+    grid-template-columns: 1fr;
+  }
+}
