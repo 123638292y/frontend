@@ -52,12 +52,13 @@ function ChatRoom() {
 
   // Keeping the existing axios call
   useEffect(() => {
+
     // Fetch data when the component mounts
-    axios
-      .get("http://localhost:5000/api/users/")
+    axios.get("http://localhost:5000/api/users/")
       .then((response) => {
         setUsers(response.data)
         setIsLoading(false)
+
       })
       .catch((err) => {
         setError("Failed to fetch users")
@@ -123,23 +124,7 @@ function ChatRoom() {
 
   useEffect(() => {
     // Fetch all online users
-    const fetchUsers = async () => {
-      if (!currentUser) return
-
-      try {
-        const token = localStorage.getItem("token")
-
-        const response = await axios.get("http://localhost:5000/api/users/all", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-
-        setUsers(response.data)
-      } catch (error) {
-        console.error("Error fetching users:", error)
-      }
-    }
+   
 
     // Fetch unread message counts
     const fetchUnreadCounts = async () => {

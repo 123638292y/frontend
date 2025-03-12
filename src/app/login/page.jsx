@@ -1,33 +1,33 @@
-"use client"
+"use client";
 
-import { useState, type FormEvent, useEffect } from "react"
-import { useRouter } from "next/navigation"
-import styles from "./login-form.module.css"
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import styles from "./login-form.module.css";
 
 export default function LoginForm() {
-  const router = useRouter()
+  const router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     role: "",
-  })
-  const [error, setError] = useState("")
+  });
+  const [error, setError] = useState("");
 
   useEffect(() => {
     // Si l'utilisateur est déjà connecté, rediriger vers /home
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
     if (token) {
-      router.push("/home")
+      router.push("/home");
     }
-  }, [])
+  }, []);
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    setError("")
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
     if (!formData.role) {
-      setError("Veuillez sélectionner un rôle (admin ou super-admin).")
-      return
+      setError("Veuillez sélectionner un rôle (admin ou super-admin).");
+      return;
     }
 
     try {
@@ -37,39 +37,41 @@ export default function LoginForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Erreur de connexion")
+        throw new Error(data.message || "Erreur de connexion");
       }
 
-      console.log("Connexion réussie:", data)
+      console.log("Connexion réussie:", data);
 
       // Stocker le token et le nom d'utilisateur dans le localStorage
-      localStorage.setItem("token", data.token)
-      localStorage.setItem("username", data.username)
-      localStorage.setItem("role", data.role)
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("username", data.username);
+      localStorage.setItem("role", data.role);
 
       // Forcer la redirection et le rechargement
-      router.push("/home")
-      window.location.href = "/home"
-    } catch (err: any) {
-      setError(err.message)
+      router.push("/home");
+      window.location.href = "/home";
+    } catch (err) {
+      setError(err.message);
     }
-  }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
         <h1 className={styles.title}>DJERBAEXPLORE</h1>
-        <p className={styles.welcomeText}>Welcome back! Please login to your account.</p>
+        <p className={styles.welcomeText}>
+          Welcome back! Please login to your account.
+        </p>
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
@@ -135,5 +137,5 @@ export default function LoginForm() {
         </div>
       </div>
     </div>
-  )
+  );
 }

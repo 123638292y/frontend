@@ -1,13 +1,9 @@
-import type React from "react"
+import  React from "react"
 import Navbar from "./components/navbar/navbar"
 import Sidebar from "./components/sidebar/sidebar"
 import styles from "./lauout.module.css"
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+  export default function RootLayout({ children })  {
   return (
     <html lang="en">
       <body>
